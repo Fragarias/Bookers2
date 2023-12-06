@@ -1,4 +1,16 @@
 <h1>User info</h1>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">
+    <%= image_tag @user.get_profile_image(100, 100) %>
+  </li>
+  <li class="list-group-item">
+    <b>name </b>
+  </li>
+  <li class="list-group-item">
+    <b>introduction </b>
+  </li>
+</ul>
+
 
 <h1>New book</h1>
 <%= form_with model: @book, url: '/books', method: :post do |f| %>
