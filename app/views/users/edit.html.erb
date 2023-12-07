@@ -6,6 +6,6 @@
   <p>Image</p>
   <%= f.file_field :profile_image, placeholder:"プロフィール画像", accept:"image/*" %>
   <p>introduction</p>
-  <%= f.text_area :introduction %>
-  <%= f.submit "Update User" %>
+  <%= f.text_area :introduction %><br>
+  <%= f.submit "Update User", type: "button", class: "btn btn-secondary" %>
 <% end %>
