@@ -4,12 +4,13 @@
     <%= image_tag @user.get_profile_image(100, 100) %>
   </li>
   <li class="list-group-item">
-    <b>name </b>
+    <b>name <%= @user.name %></b>
   </li>
   <li class="list-group-item">
-    <b>introduction </b>
+    <b>introduction <%= @user.introduction %></b>
   </li>
 </ul>
+<%= link_to "useredit", edit_user_path(@user.id) %>
 
 
 <h1>New book</h1>
