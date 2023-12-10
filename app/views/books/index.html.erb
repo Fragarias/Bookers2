@@ -1,15 +1,15 @@
-<!--<h1>User info</h1>-->
-<!--<ul class="list-group list-group-flush">-->
-<!--  <li class="list-group-item">-->
-<!--    %= image_tag @user.get_profile_image(100, 100) %> <!-- エラー -->
-<!--  </li>-->
-<!--  <li class="list-group-item">-->
-<!--    <b>name </b>-->
-<!--  </li>-->
-<!--  <li class="list-group-item">-->
-<!--    <b>introduction </b>-->
-<!--  </li>-->
-<!--</ul>-->
+<h1>User info</h1>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">
+    <%= image_tag current_user.get_profile_image(100, 100) %>
+  </li>
+  <li class="list-group-item">
+    <b>name <%= current_user.name %></b>
+  </li>
+  <li class="list-group-item">
+    <b>introduction <%= current_user.introduction %></b>
+  </li>
+</ul>
 
 
 <h1>New book</h1>
@@ -24,8 +24,8 @@
 <h1>Books</h1>
 <% @books.each do |book| %>
   <div>
-    <%= link_to book_path(book.id) do %>
-      <p>投稿ユーザー画像:</p>
+    <%= link_to user_path(book.user_id) do %>
+      <%= image_tag book.user.get_profile_image(100, 100) %>
     <% end %>
     <%= link_to book_path(book.id) do %>
       <p>Title:<%= book.title %></p>
