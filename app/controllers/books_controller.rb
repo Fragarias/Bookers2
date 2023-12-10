@@ -2,10 +2,6 @@ class BooksController < ApplicationController
   def index
     @book_new = Book.new
     @books = Book.all
-    #food = Food.find(params[:id])
-    #user = User.find(food.user.id)
-    #@nickname = user.nickname
-    #@foods = user.foods
   end
 
   def create
@@ -17,6 +13,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @book_new = Book.new
   end
 
   def edit

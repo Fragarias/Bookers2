@@ -1,40 +1,55 @@
-<h1>User info</h1>
-<ul class="list-group list-group-flush">
-  <li class="list-group-item">
-    <%= image_tag @book.user.get_profile_image(100, 100) %>
-  </li>
-  <li class="list-group-item">
-    <b>name <%= @book.user.name %></b>
-  </li>
-  <li class="list-group-item">
-    <b>introduction <%= @book.user.introduction %></b>
-  </li>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h2>User info</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <%= image_tag @book.user.get_profile_image(100, 100) %>
+        </li>
+        <li class="list-group-item">
+          <b>name <%= @book.user.name %></b>
+        </li>
+        <li class="list-group-item">
+          <b>introduction <%= @book.user.introduction %></b>
+        </li>
+      </ul>
 
+      <h2>New book</h2>
+      <%= form_with model: @book_new, url: '/books', method: :post do |f| %>
+        <p>Title</p>
+        <%= f.text_field :title %>
+        <p>Opinion</p>
+        <%= f.text_area :body %><br>
+        <%= f.submit 'Create Book', class: "btn btn-success" %>
+      <% end %>
+    </div>
 
-<h1>New book</h1>
-<%= form_with model: @book, url: '/books', method: :post do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-  <p>Opinion</p>
-  <%= f.text_area :body %><br>
-  <%= f.submit 'Create Book', class: "btn btn-success" %>
-<% end %>
-
-<h1>Book detail</h1>
-<div>
-  <%= link_to user_path(@book.user_id) do %>
-    <%= image_tag @book.user.get_profile_image(100, 100) %>
-  <% end %>
-  <%= link_to user_path(@book.user_id) do %>
-    <p><%= @book.user.name %></p>
-  <% end %>
-  <%= link_to book_path(@book.id) do %>
-    <p><%= @book.title %></p>
-  <% end %>
-  <p>Opinion:<%= @book.body %></p>
-  <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path(@book), class: "btn btn-success btn-sm" %>
-    <%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-danger btn-sm" %>
-  <% end %>
+    <div class="col-8 offset-1">
+      <h2>Book detail</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to user_path(@book.user_id) do %>
+                <%= image_tag @book.user.get_profile_image(100, 100) %>
+              <% end %>
+              <%= link_to user_path(@book.user_id) do %>
+                <p><%= @book.user.name %></p>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(@book.id) do %>
+                <p><%= @book.title %></p>
+              <% end %>
+            </td>
+            <td><%= @book.body %></td>
+            <% if @book.user == current_user %>
+              <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success btn-sm" %></td>
+              <td><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-danger btn-sm" %></td>
+            <% end %>
+          <tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
