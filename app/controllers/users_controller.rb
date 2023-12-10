@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @book = Book.new
     @books = @user.books
+    #food = Food.find(params[:id])
+    #user = User.find(food.user.id)
+    #@nickname = user.nickname
+    #@foods = user.foods
   end
 
   def edit
