@@ -26,7 +26,7 @@
 
     <div class="col-8 offset-1">
       <h2>Book detail</h2>
-      <table>
+      <table class="table">
         <tbody>
           <tr>
             <td>
@@ -47,6 +47,16 @@
               <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success btn-sm" %></td>
               <td><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-danger btn-sm" %></td>
             <% end %>
+            <!--<td>-->
+            <!--  % if @book.user == current_user %>-->
+            <!--    %= link_to "Edit", edit_book_path(@book), class: "btn btn-success btn-sm" %>-->
+            <!--  % end %>-->
+            <!--</td>-->
+            <!--<td>-->
+            <!--  % if @book.user == current_user %>-->
+            <!--    %= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-danger btn-sm" %>-->
+            <!--  % end %>-->
+            <!--</td>-->
           <tr>
         </tbody>
       </table>
