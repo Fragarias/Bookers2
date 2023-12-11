@@ -1,0 +1,17 @@
+      <h2>User info</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <%= image_tag user.get_profile_image(100, 100) %>
+        </li>
+        <li class="list-group-item">
+          <b>name <%= user.name %></b>
+        </li>
+        <li class="list-group-item">
+          <b>introduction <%= user.introduction %></b>
+        </li>
+      </ul>
+      <% if user == current_user %>
+        <%= link_to "useredit", edit_user_path(user.id) %>
+      <% else %>
+        <%= link_to "myuserBooks", user_path(current_user.id) %>
+      <% end %>
