@@ -11,7 +11,12 @@
         </li>
       </ul>
       <% if user == current_user %>
-        <%= link_to "useredit", edit_user_path(user.id) %>
+        <i class="fa-solid fa-user-gear">
+          <%= link_to "useredit", edit_user_path(user.id) %>
+        </i>
       <% else %>
-        <%= link_to "myuserBooks", user_path(current_user.id) %>
+        <i class="fa-solid fa-user-gear"></i>
+          <%= link_to "myuserBooks", user_path(current_user.id) %>
+        </i>
       <% end %>
+<!--<i class="fa-solid fa-user-gear"></i>-->
